@@ -9,12 +9,23 @@
     </thead>
     <tbody>
         
-        <tr *ngFor="let persona of personas">
+        <tr *ngFor="let persona of personas index as i">
             <td>{{persona.nombre}}</td>
             <td>{{persona.apellido}}</td>
-            <td><button>boton</button></td>
+            <td><input type="radio" name="{{i}}" [(ngModel)]="persona.mayorEdad" [value]=true>  +18</td>
+            <td><input type="radio" name="{{i}}" [(ngModel)]="persona.mayorEdad" [value]=false> -18</td>
         </tr>        
     </tbody>
-
-
 </table>
+<div *ngIf="personas[0].mayorEdad; else menorEdad">
+    <br>
+    {{personas[0].nombre}} es mayor de edad
+</div>
+<ng-template #menorEdad>
+    <div>
+        <br>
+        {{personas[0].nombre}} es menor de edad
+    </div>
+</ng-template>
+<button>Añadir persona</button>
+

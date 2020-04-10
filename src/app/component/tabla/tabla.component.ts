@@ -9,17 +9,19 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 export class TablaComponent implements OnInit {
 
   personas: any[];
-
+  
   constructor() {
     this.personas = [];
     this.personas.push({
       nombre: "Perico",
-      apellido: "De los Palotes"
+      apellido: "De los Palotes",
+      mayorEdad: false
     });
 
     this.personas.push({
       nombre: "Rogelia",
-      apellido: "Martinez"
+      apellido: "Martinez",
+      mayorEdad: true
     });
    }
 
