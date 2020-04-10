@@ -1,0 +1,29 @@
+<form [formGroup]="nuevaPersona" (ngSubmit)="onSubmit()">
+    <div>
+      <div>
+        <label>Nombre</label>
+        <input type="text" formControlName="nombre" />
+
+        <!-- pinta errores -->
+        <div *ngIf="submitted && formulario.nombre.errors">
+          <div *ngIf="formulario.nombre.errors.required" style="color:red">El nombre no puede estar vacio</div>
+          <div *ngIf="formulario.nombre.errors.minlength" style="color:red">El nombre debe contener más de 4 carácteres</div>
+        </div>
+
+      </div>
+
+      <div>
+        <label>Apellido</label>
+        <input type="text" formControlName="apellido" />
+        <div *ngIf="submitted && formulario.apellido.errors">
+          <div *ngIf="formulario.apellido.errors.required" style="color:red">El apellido no puede estar vacio</div>
+          <div *ngIf="formulario.apellido.errors.minlength" style="color:red">El apellido debe contener más de 4 carácteres</div>
+        </div>
+      </div>
+    </div>
+   
+    <div>
+      <button>Enviar</button>
+      <button type="reset" (click)="onReset()">Cancelar</button>
+    </div>
+  </form>
