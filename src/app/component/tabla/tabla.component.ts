@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Persona } from '../../models/Persona';
 
 @Component({
   selector: 'app-tabla',
@@ -8,25 +9,18 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 })
 export class TablaComponent implements OnInit {
 
-  personas: any[];
-  
-  constructor() {
-    this.personas = [];
-    this.personas.push({
-      nombre: "Perico",
-      apellido: "De los Palotes",
-      mayorEdad: false
-    });
+  personas: Array<Persona>;
 
-    this.personas.push({
-      nombre: "Rogelia",
-      apellido: "Martinez",
-      mayorEdad: true
-    });
-   }
+  constructor() {
+    this.personas =[
+      new Persona("Perico", "De los Palotes", false),
+      new Persona("Rogelia", "Martinez", true),
+      new Persona("Estusia", "Martinez", true),
+    ];
+  }
 
   ngOnInit(): void {
-  
+
   }
 
 }

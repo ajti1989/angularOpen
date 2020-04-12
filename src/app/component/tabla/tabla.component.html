@@ -1,5 +1,5 @@
 <h2>Tabla</h2>
-<table class="table table-dark">
+<table class="table table-light mx-5">
     <thead>
         <tr>
             <th>Nombre</th>
@@ -9,12 +9,18 @@
     </thead>
     <tbody>
         
-        <tr *ngFor="let persona of personas index as i">
-            <td>{{persona.nombre}}</td>
-            <td>{{persona.apellido}}</td>
-            <td><input type="radio" name="{{i}}" [(ngModel)]="persona.mayorEdad" [value]=true> +18</td>
-            <td><input type="radio" name="{{i}}" [(ngModel)]="persona.mayorEdad" [value]=false> -18</td>
-        </tr>        
+        <ng-container *ngFor="let persona of personas index as i">
+            <div *ngIf="persona.mayorEdad">
+                <tr>
+                    <td>{{persona.nombre}}</td>
+                    <td>{{persona.apellido}}</td>
+                    <td><input type="radio" name="{{i}}" [(ngModel)]="persona.mayorEdad" [value]=true> +18</td>
+                    <td><input type="radio" name="{{i}}" [(ngModel)]="persona.mayorEdad" [value]=false> -18</td>
+                </tr>   
+                <app-nueva-persona></app-nueva-persona>
+            </div>
+        </ng-container>
+             
     </tbody>
 </table>
 <div *ngIf="personas[0].mayorEdad; else menorEdad">
@@ -28,4 +34,6 @@
     </div>
 </ng-template>
 <button>Añadir persona</button>
+
+
 

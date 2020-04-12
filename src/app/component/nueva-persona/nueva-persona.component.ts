@@ -12,7 +12,7 @@ export class NuevaPersonaComponent implements OnInit {
 
   nuevaPersona: FormGroup;
   submitted = false;
-
+  visible = false;
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
